@@ -51,7 +51,12 @@ const qaBot = ({
     isLoggedIn = document.cookie.split("; ").includes("SESSaccesscisso=1");
 
   renderShadow(
-    <QABot isLoggedIn={isLoggedIn} target={target} {...otherParams} />,
+    <QABot
+      isLoggedIn={isLoggedIn}
+      target={target}
+      apiKey={import.meta.env.VITE_QA_BOT_API_KEY || "my-api-key"}
+      {...otherParams}
+    />,
      target,
     [baseStyle, qaStyle]
   );

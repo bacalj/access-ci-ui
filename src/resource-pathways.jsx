@@ -1,7 +1,8 @@
 import { useRef } from "preact/hooks";
 import Icon from "./icon";
+import { qaBotRef } from "./qa-bot";
 
-export function ResourcePathways({ setBotOpen }) {
+export function ResourcePathways() {
   const container = useRef(null);
 
   const pathways = [
@@ -20,7 +21,9 @@ export function ResourcePathways({ setBotOpen }) {
       icon: "question-circle",
       onClick: (e) => {
         e.preventDefault();
-        setBotOpen(true);
+        if (qaBotRef) {
+          qaBotRef.open();
+        }
       },
       description: "You have resource questions. Our Q&A bot has answers!",
       login: true,

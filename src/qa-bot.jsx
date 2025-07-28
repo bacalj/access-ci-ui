@@ -7,12 +7,29 @@ const AsyncLoadedQABot = lazy(() =>
   }))
 );
 
+// Global reference to the QA bot control methods
+let qaBotRef = null;
+
 export class QABot extends Component {
+  state = { isOpen: false };
+
+  componentDidMount() {
+    // Store simple control methods
+    qaBotRef = {
+      open: () => this.setState({ isOpen: true }),
+      close: () => this.setState({ isOpen: false }),
+      toggle: () => this.setState({ isOpen: !this.state.isOpen })
+    };
+  }
+
+  componentWillUnmount() {
+    qaBotRef = null;
+  }
+
   render() {
     const {
       welcome,
       isLoggedIn,
-      open,
       onOpenChange,
       apiKey,
       embedded,
@@ -37,7 +54,7 @@ export class QABot extends Component {
         <AsyncLoadedQABot
           welcome={welcome || "Welcome to ACCESS Q&A Bot!"}
           isLoggedIn={loggedIn}
-          open={open}
+          open={this.state.isOpen}
           onOpenChange={onOpenChange}
           embedded={embedded === true}
           apiKey={botApiKey}
@@ -47,3 +64,6 @@ export class QABot extends Component {
     );
   }
 }
+
+// Export the qaBot reference for use in other components
+export { qaBotRef };
