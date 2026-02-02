@@ -17,7 +17,10 @@ import logoStyle from "./logo.css?inline";
 import menusStyle from "./menus.css?inline";
 import resourceCatalogStyle from "./resource-catalog.css?inline";
 import tocStyle from "./table-of-contents.css?inline";
-import qaStyle from "../node_modules/@snf/access-qa-bot/build/static/css/main.css?inline";
+import rcbStyle from "../node_modules/react-chatbotify/dist/style.css?inline";
+import qaStyleOverrides from "../node_modules/@snf/access-qa-bot/dist/style.css?inline";
+import localQaStyles from "./qa-bot.css?inline";
+const qaStyle = rcbStyle + qaStyleOverrides + localQaStyles;
 
 const breadcrumbs = (params = {}) => {
   renderShadow(<Breadcrumbs {...params} />, params.target, [
@@ -42,18 +45,14 @@ const header = (params = {}) => {
   ]);
 };
 
-const qaBot = ({
-  isLoggedIn,
-  target,
-  ...otherParams
-} = {}) => {
+const qaBot = ({ isLoggedIn, target, ...otherParams } = {}) => {
   if (isLoggedIn === undefined)
     isLoggedIn = document.cookie.split("; ").includes("SESSaccesscisso=1");
 
   renderShadow(
     <QABot isLoggedIn={isLoggedIn} target={target} {...otherParams} />,
-     target,
-    [baseStyle, qaStyle]
+    target,
+    [baseStyle, qaStyle],
   );
 };
 
@@ -125,9 +124,24 @@ const tableOfContents = ({ headings = [], target }) =>
     tocStyle,
   ]);
 
-const resourceCatalog = ({ baseUri, showTitle, target, title }) =>
+const resourceCatalog = ({
+  accessId,
+  baseUri,
+  isLoggedIn,
+  qaBotApiKey,
+  showTitle,
+  target,
+  title,
+}) =>
   renderShadow(
-    <ResourceCatalog baseUri={baseUri} showTitle={showTitle} title={title} />,
+    <ResourceCatalog
+      accessId={accessId}
+      baseUri={baseUri}
+      isLoggedIn={isLoggedIn}
+      qaBotApiKey={qaBotApiKey}
+      showTitle={showTitle}
+      title={title}
+    />,
     target,
     [baseStyle, contentStyle, resourceCatalogStyle, qaStyle],
   );

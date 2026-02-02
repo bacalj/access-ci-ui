@@ -2,6 +2,129 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.16.0](https://github.com/access-ci-org/access-ci-ui/compare/v0.15.0...v0.16.0) (2026-01-22)
+
+
+### Features
+
+* **resource-group-software:** use SDS API v1 ([871bcee](https://github.com/access-ci-org/access-ci-ui/commit/871bceed3ebe801166cce210a52df356991b9724))
+
+## [0.15.0](https://github.com/access-ci-org/access-ci-ui/compare/v0.14.0...v0.15.0) (2026-01-06)
+
+
+### Features
+
+* **footer:** replace X with Bluesky ([97ad373](https://github.com/access-ci-org/access-ci-ui/commit/97ad373e61cbb2ad1dec4f48becf5f8835938aab))
+
+## [0.14.0](https://github.com/access-ci-org/access-ci-ui/compare/v0.13.2...v0.14.0) (2025-12-08)
+
+
+### Features
+
+* **resource-catalog:** add CloudBank aliases ([39513bc](https://github.com/access-ci-org/access-ci-ui/commit/39513bce5eb2746a4bd22c6f1a13c9578219b598))
+
+## [0.13.2](https://github.com/access-ci-org/access-ci-ui/compare/v0.13.1...v0.13.2) (2025-11-13)
+
+
+### Bug Fixes
+
+* **deps:** update @snf/access-qa-bot to 2.7.3 ([982cc07](https://github.com/access-ci-org/access-ci-ui/commit/982cc074a5e559b1cc3b8dd55b6a44c7fb45ea1d))
+
+## [0.13.1](https://github.com/access-ci-org/access-ci-ui/compare/v0.13.0...v0.13.1) (2025-11-06)
+
+
+### Bug Fixes
+
+* **award-link:** update NSF award base URL ([ff1ec99](https://github.com/access-ci-org/access-ci-ui/commit/ff1ec99d8ba9d9b8cb46925ce52516794972adfe))
+* **deps:** update @snf/access-qa-bot to 2.7.2 ([323fa03](https://github.com/access-ci-org/access-ci-ui/commit/323fa03dde1efa4c2a598454241b03019291dcc8))
+* **menu:** add aria-label for navigation landmarks ([7269367](https://github.com/access-ci-org/access-ci-ui/commit/7269367303f5c388fa4b1d39d441cc87bedbc30b))
+
+## [0.13.0](https://github.com/access-ci-org/access-ci-ui/compare/v0.12.0...v0.13.0) (2025-09-25)
+
+
+### Features
+
+* **resource-catalog:** pass ACCESS ID to QA bot ([ec63d73](https://github.com/access-ci-org/access-ci-ui/commit/ec63d73ed72bf53f570e47529330537f10edff3e))
+
+
+### Bug Fixes
+
+* qa-bot wrapper should accept and use userEmail, userName, accessId params ([8fbf748](https://github.com/access-ci-org/access-ci-ui/commit/8fbf748da57bc1175b99e09232bb18d0613ca7dd))
+* qa-bot wrapper should accept and use userEmail, userName, accessId params ([744f64b](https://github.com/access-ci-org/access-ci-ui/commit/744f64b94bf52bbca034c52f6e8bdc43255c7d1e))
+
+## [0.12.0](https://github.com/access-ci-org/access-ci-ui/compare/v0.11.0...v0.12.0) (2025-09-04)
+
+
+### Features
+
+* update access-qa-bot to 2.7.0 which includes metrics flow ([2b86659](https://github.com/access-ci-org/access-ci-ui/commit/2b866593143edeccdbd45ba2d810d0aad123636c))
+* update access-qa-bot to 2.7.0 which includes metrics flow ([2e3fc38](https://github.com/access-ci-org/access-ci-ui/commit/2e3fc38accdb6b5c1a03475f22e73cae5a0ef538))
+
+
+### Bug Fixes
+
+* update @snf/access-qa-bot from 2.6.2 to 2.6.4 ([f4a707d](https://github.com/access-ci-org/access-ci-ui/commit/f4a707d8b5b443bc2bb906238672ceab9ecb593b))
+
+## [0.11.0](https://github.com/access-ci-org/access-ci-ui/compare/v0.10.0...v0.11.0) (2025-08-27)
+
+
+### Features
+
+* **menus:** add optional onClick parameter to menu items ([f84de06](https://github.com/access-ci-org/access-ci-ui/commit/f84de06d97fe00f13cfed9a7140ab0f86cb520f0))
+
+
+### Bug Fixes
+
+* add missing key props ([1cde3d6](https://github.com/access-ci-org/access-ci-ui/commit/1cde3d6ddc8cfe5e2eb665bea785ff34f1da2269))
+* **menus:** only style buttons rendered by the menu ([4e41bcb](https://github.com/access-ci-org/access-ci-ui/commit/4e41bcbc14bad8b010241f72d5c815ea48869c60))
+
+## [0.10.0](https://github.com/access-ci-org/access-ci-ui/compare/v0.10.0-beta1...v0.10.0) (2025-08-25)
+
+
+### Features
+
+* upgrade @snf/access-qa-bot to version 2.6.1 ([e876870](https://github.com/access-ci-org/access-ci-ui/commit/e876870959982bc98fda63f3374a2284ecfd0620))
+* upgrade @snf/access-qa-bot to version 2.6.1 ([cad733e](https://github.com/access-ci-org/access-ci-ui/commit/cad733e78027a777647e69869cc4f47407f4c1be))
+
+
+### Bug Fixes
+
+* **resource-pathways:** update ARA URL ([950c3fb](https://github.com/access-ci-org/access-ci-ui/commit/950c3fb2da785b906e1bdef717bdca4b058c81de))
+
+
+### Miscellaneous Chores
+
+* release 0.10.0 ([72a1e93](https://github.com/access-ci-org/access-ci-ui/commit/72a1e939179f0a3aab15daea2685bacc79983746))
+
+## [0.10.0-beta1](https://github.com/access-ci-org/access-ci-ui/compare/v0.9.0...v0.10.0-beta1) (2025-08-12)
+
+
+### Features
+
+* **qa-bot:** upgrade @snf/access-qa-bot to version 2.6.0 ([20498d5](https://github.com/access-ci-org/access-ci-ui/commit/20498d53d51ed7b2c0208a15cd56961461818504))
+
+
+### Bug Fixes
+
+* **resource-catalog:** show QA bot on every page and pass through params ([5ce1cf9](https://github.com/access-ci-org/access-ci-ui/commit/5ce1cf9af350df3c8c88586689242f7746e033dc))
+
+
+### Miscellaneous Chores
+
+* release 0.10.0-beta1 ([f0b2fea](https://github.com/access-ci-org/access-ci-ui/commit/f0b2fea033b16b541bfead473afda420c1913b77))
+
+## [0.9.0](https://github.com/access-ci-org/access-ci-ui/compare/v0.9.0-beta2...v0.9.0) (2025-07-29)
+
+
+### Features
+
+* **qa-bot:** upgrade @snf/access-qa-bot to version 2.4.2 ([9dff34b](https://github.com/access-ci-org/access-ci-ui/commit/9dff34b9ae8bcf9c7116d5dc0aab37ef32dc0fa8))
+
+
+### Miscellaneous Chores
+
+* release 0.9.0 ([9586602](https://github.com/access-ci-org/access-ci-ui/commit/9586602e55b4e89cf629bb2220e11c05d2a7f913))
+
 ## [0.9.0-beta2](https://github.com/access-ci-org/access-ci-ui/compare/v0.9.0-beta1...v0.9.0-beta2) (2025-07-21)
 
 

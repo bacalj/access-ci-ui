@@ -1,4 +1,4 @@
-import { useEffect, useId, useState } from "preact/hooks";
+import { useEffect, useId, useState } from "react";
 import { getMode, useMode } from "./utils";
 
 import { LinksList } from "./links-list";
@@ -11,6 +11,7 @@ export const Menu = ({
   items,
   mode,
   name,
+  onClick,
   open,
   parentId = "root",
   setOpen,
@@ -24,9 +25,13 @@ export const Menu = ({
 
   if (html) return <div dangerouslySetInnerHTML={{ __html: html }}></div>;
 
-  if (href)
+  if (href || onClick)
     return (
-      <a href={href} class={`item ${classes || ""}`}>
+      <a
+        href={href || "#"}
+        onClick={onClick}
+        className={`item ${classes || ""}`}
+      >
         {name}
       </a>
     );
@@ -37,28 +42,36 @@ export const Menu = ({
           <button
             aria-expanded={expanded}
             aria-controls={id}
-            class={`item ${expanded ? "expanded" : "collapsed"}`}
+            className={`item ${expanded ? "expanded" : "collapsed"}`}
             onClick={toggleOpen}
           >
             {name}
           </button>
         )}
-        <ul class={classes} id={id} hidden={!expanded} aria-hidden={!expanded}>
-          {items.map(({ autoOpenMode, classes, href, html, items, name }) => (
-            <li class={classes || ""}>
-              <Menu
-                autoOpenMode={autoOpenMode}
-                href={href}
-                html={html}
-                items={items}
-                mode={mode}
-                name={name}
-                open={open}
-                parentId={id}
-                setOpen={setOpen}
-              />
-            </li>
-          ))}
+        <ul
+          className={classes}
+          id={id}
+          hidden={!expanded}
+          aria-hidden={!expanded}
+        >
+          {items.map(
+            ({ autoOpenMode, classes, href, html, items, name, onClick }) => (
+              <li className={classes || ""} key={name || html}>
+                <Menu
+                  autoOpenMode={autoOpenMode}
+                  href={href}
+                  html={html}
+                  items={items}
+                  mode={mode}
+                  name={name}
+                  onClick={onClick}
+                  open={open}
+                  parentId={id}
+                  setOpen={setOpen}
+                />
+              </li>
+            ),
+          )}
         </ul>
       </>
     );
@@ -78,8 +91,15 @@ export const Menus = ({ classes, items, name, target }) => {
     });
   }, []);
 
+  // Create unique aria-label based on menu type
+  const ariaLabel = classes?.includes('universal')
+    ? 'ACCESS universal navigation'
+    : classes?.includes('site')
+    ? `${name}`
+    : name;
+
   return (
-    <nav class={`menu ${classes || ""}`}>
+    <nav className={`menu ${classes || ""}`} aria-label={ariaLabel}>
       <Menu
         autoOpenMode="desktop"
         items={items}
@@ -103,14 +123,14 @@ export const FooterMenus = ({ items, siteName = "" }) => {
       }
     if (href)
       return (
-        <div class="column">
+        <div className="column" key={name}>
           <h3>
             <a href={href}>{name}</a>
           </h3>
         </div>
       );
     return (
-      <div class="column">
+      <div className="column" key={name}>
         <h3>{name}</h3>
         <LinksList items={items} />
       </div>
@@ -118,9 +138,9 @@ export const FooterMenus = ({ items, siteName = "" }) => {
   });
 
   return (
-    <nav class="footer">
+    <nav className="footer">
       <h2>ACCESS {siteName}</h2>
-      <div class="columns">{menus}</div>
+      <div className="columns">{menus}</div>
     </nav>
   );
 };

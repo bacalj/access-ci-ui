@@ -1,20 +1,19 @@
-import { useMemo, useState } from "preact/hooks";
+import { useMemo, useState } from "react";
 import { filterResourceGroups, useResourceGroups } from "./utils";
 
 import Breadcrumbs from "./breadcrumbs";
 import { ResourceCategory } from "./resource-category";
 import { ResourceFilters } from "./resource-filters";
 import { ResourcePathways } from "./resource-pathways";
-import { QABot } from "./qa-bot";
 
 export default function ResourceHome({
   baseUri,
   title,
+  setBotOpen,
   showBreadcrumbs = true,
   showTitle = true,
 }) {
   const [activeTagIds, setActiveTagIds] = useState([]);
-  const [botOpen, setBotOpen] = useState(false);
   const groups = useResourceGroups();
   const active = useMemo(
     () => (groups ? filterResourceGroups(groups, activeTagIds) : null),
@@ -39,7 +38,7 @@ export default function ResourceHome({
           topBorder={true}
         />
       )}
-      {title && <h1 class={showTitle ? "" : "visually-hidden"}>{title}</h1>}
+      {title && <h1 className={showTitle ? "" : "visually-hidden"}>{title}</h1>}
       <ResourcePathways setBotOpen={setBotOpen} />
       <div id="browse-resources">
         {active ? (
@@ -57,6 +56,7 @@ export default function ResourceHome({
               )
               .map((resourceCategory) => (
                 <ResourceCategory
+                  key={resourceCategory.name}
                   {...resourceCategory}
                   active={active}
                   baseUri={baseUri}
@@ -66,14 +66,6 @@ export default function ResourceHome({
               ))
           : null}
       </div>
-
-      <QABot
-        embedded={false}
-        open={botOpen}
-        onOpenChange={setBotOpen}
-        welcome="Welcome to the ACCESS Q&A Bot!"
-        apiKey={import.meta.env.VITE_QA_BOT_API_KEY || "my-api-key"}
-      />
     </>
   );
 }
